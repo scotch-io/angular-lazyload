@@ -4,11 +4,12 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
+    pathMatch: 'full',
     path: '',
     component: HomeComponent
   },
   {
-    path: 'dashboard',
+    path: 'modules/dashboard',
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
   }
 ];
