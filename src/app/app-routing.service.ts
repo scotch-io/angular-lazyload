@@ -15,9 +15,9 @@ export class AppRoutingService {
   getRoutes() {
     const routerConfig = this.router.config;
     this.http.get(this.url).subscribe((items) => {
-      routerConfig.push({
-        path: 'dashboard',
-        loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+      const routes = items.json();
+      routes.forEach(route => {
+        routerConfig.push(route);
       });
       console.log('getRoutes', routerConfig);
       this.router.resetConfig(routerConfig);
