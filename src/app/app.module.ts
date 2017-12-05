@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingService } from './app-routing.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
@@ -12,9 +14,14 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [AppRoutingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor (private routeService: AppRoutingService) {
+    routeService.getRoutes();
+  }
+}

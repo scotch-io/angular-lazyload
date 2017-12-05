@@ -1,0 +1,6 @@
+[
+  {
+    "path": "dashboard",
+    "loadChildren": "app/dashboard/dashboard.module#DashboardModule"
+  }
+]
